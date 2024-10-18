@@ -60,7 +60,7 @@ string prefixToInfix(const string& exp) {
         } else {
             string A = s.pop();
             string B = s.pop();
-            string combined = "(" + A + " " + exp[i] + " " + B + ")";
+            string combined = "(" + A + " " + B + " " + exp[i] + ")";
             s.push(combined);
         }
     }
