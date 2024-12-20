@@ -68,11 +68,9 @@ Node* insert(Node* node, int key) {
     if (node == nullptr) return createNode(key);
 
     if (key < node->key)
-        node->left = insert(node->left, key);
-    else if (key > node->key)
-        node->right = insert(node->right, key);
+        node->left = insert(node->left, key); 
     else
-        return node; // No duplicates allowed
+        node->right = insert(node->right, key);
 
     // Update height
     node->height = 1 + max(getHeight(node->left), getHeight(node->right));
@@ -141,9 +139,6 @@ Node* deleteNode(Node* root, int key) {
         }
     }
 
-    // If the tree had only one node
-    if (root == nullptr) return root;
-
     // Update height
     root->height = 1 + max(getHeight(root->left), getHeight(root->right));
 
@@ -189,11 +184,11 @@ int main() {
 
     // Insert elements
     root = insert(root, 10);
-    root = insert(root, 20);
-    root = insert(root, 30);
-    root = insert(root, 40);
-    root = insert(root, 50);
-    root = insert(root, 25);
+    // root = insert(root, 20);
+    // root = insert(root, 30);
+    // root = insert(root, 40);
+    // root = insert(root, 40);
+    // root = insert(root, 25);
 
     cout << "In-order traversal of AVL tree: ";
     inOrderTraversal(root);
